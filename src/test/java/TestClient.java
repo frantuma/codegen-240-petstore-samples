@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.core.JsonParseException;
 import io.swagger.client.ApiClient;
 import io.swagger.client.api.PetApi;
 import io.swagger.client.api.UserApi;
@@ -19,6 +20,11 @@ public class TestClient {
         Yaml.prettyPrint(a.size());
         api.addPet(new Pet().id(1L).name("name").status(Pet.StatusEnum.AVAILABLE));
         UserApi userApi = new UserApi();
-        Yaml.prettyPrint(userApi.loginUser("user1", "XXXXXXXXXXX"));
+        try {
+            Yaml.prettyPrint(userApi.loginUser("user1", "XXXXXXXXXXX"));
+        } catch (JsonParseException e) {
+            // ok, as it's wrong format sent by the server
+        }
+        //
     }
 }

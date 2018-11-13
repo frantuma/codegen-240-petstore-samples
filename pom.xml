@@ -13,7 +13,7 @@
         <!-- replace this dep with the one installed by the specific sample -->
         <dependency>
             <groupId>io.swagger</groupId>
-            <artifactId>swagger-petstore-jersey2</artifactId>
+            <artifactId>swagger-petstore-google-api-client</artifactId>
             <version>1.0.0</version>
         </dependency>
 
